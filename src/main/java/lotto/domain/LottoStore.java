@@ -2,6 +2,7 @@ package lotto.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import lotto.dto.LottoDto;
 import lotto.dto.LottoNumbers;
 
 public class LottoStore {
