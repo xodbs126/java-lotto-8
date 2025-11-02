@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import lotto.dto.LottoDto;
 import lotto.dto.LottoNumbers;
+import lotto.dto.WinningNumberDto;
 
 public class LottoStore {
 
@@ -14,33 +15,54 @@ public class LottoStore {
         this.lottoMachine = lottoMachine;
     }
 
-    public Integer calculateCount(Integer money) {
-        Integer count = money / LOTTO_PRICE;
+    public Long calculateCount(Long money) {
+        Long count = money / LOTTO_PRICE;
 
         return count;
     }
 
-    public Integer calculateMoney(Integer money) {
-        Integer charge = money % LOTTO_PRICE;
+    public Long calculateMoney(Long money) {
+        Long charge = money % LOTTO_PRICE;
 
         return charge;
     }
 
 
-    public LottoDto purchase(Integer money) {
+    public LottoDto purchase(Long money) {
         List<LottoNumbers> purchasedLottos = new ArrayList<>();
 
-        Integer lottoCount = calculateCount(money);
-        Integer charge = calculateMoney(money);
+        Long lottoCount = calculateCount(money);
+        Long charge = calculateMoney(money);
 
         for (int count = 0; count < lottoCount; count++) {
             LottoNumbers lottoNumbers = lottoMachine.generateLotto();
             purchasedLottos.add(lottoNumbers);
         }
 
-        return LottoDto.from(purchasedLottos, lottoCount, charge);
+        return LottoDto.from(purchasedLottos, lottoCount, charge,money);
     }
 
 
+    public LottoResult calculate(LottoDto purchasedLottos, WinningNumberDto winningNumbers) {
 
+
+        LottoResult result = new LottoResult();
+
+        List<Integer> winningNumberList = winningNumbers.winningNumbers();
+        int bonusNum = winningNumbers.bonusNumber();
+
+        for (LottoNumbers lottoNumbers : purchasedLottos.lottoNumbersList()) {
+
+            Lotto lotto = lottoNumbers.lotto();
+
+            int matchCount = lotto.getMatchCount(winningNumberList);
+            boolean hasBonus = lotto.hasBonus(bonusNum);
+
+            Rank rank = Rank.valueOf(matchCount, hasBonus);
+
+            result.add(rank);
+        }
+
+        return result;
+    }
 }
