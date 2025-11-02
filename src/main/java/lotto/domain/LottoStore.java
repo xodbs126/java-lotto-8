@@ -55,8 +55,8 @@ public class LottoStore {
 
             Lotto lotto = lottoNumbers.lotto();
 
-            int matchCount = lotto.getMatchCount(winningNumberList);
-            boolean hasBonus = lotto.hasBonus(bonusNum);
+            int matchCount = lotto.getCount(winningNumberList);
+            boolean hasBonus = lotto.needBonusNumber(bonusNum);
 
             Rank rank = Rank.valueOf(matchCount, hasBonus);
 
