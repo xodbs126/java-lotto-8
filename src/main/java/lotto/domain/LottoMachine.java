@@ -1,6 +1,7 @@
 package lotto.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import lotto.dto.LottoNumbers;
@@ -19,9 +20,12 @@ public class LottoMachine {
      */
     public List<Integer> generateNumbers() {
         List<Integer> lottoNumbers = Randoms.pickUniqueNumbersInRange(1, 45, 6);
-        sortNumbers(lottoNumbers);
 
-        return lottoNumbers;
+        List<Integer> sortedLottoNumbers = new ArrayList<>(lottoNumbers);
+
+        sortNumbers(sortedLottoNumbers);
+
+        return sortedLottoNumbers;
     }
 
     /***
