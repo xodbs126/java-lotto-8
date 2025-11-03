@@ -1,5 +1,7 @@
 package lotto.domain;
 
+import static lotto.constants.LottoConstants.LOTTO_PRICE;
+
 import java.util.ArrayList;
 import java.util.List;
 import lotto.dto.LottoDto;
@@ -8,7 +10,7 @@ import lotto.dto.WinningNumberDto;
 
 public class LottoStore {
 
-    private static final Integer LOTTO_PRICE  =1000;
+
     private final LottoMachine lottoMachine;
 
     public LottoStore(LottoMachine lottoMachine) {

@@ -1,12 +1,13 @@
-package lotto.validator;
+package lotto.validator.input;
+
+import static lotto.constants.LottoConstants.SEPARATOR;
 
 import java.util.HashSet;
 import java.util.Set;
 
 public class WinningNumbersValidator implements InputValidator {
 
-    private static final String SEPARATOR = ",";
-    private static final int LOTTO_NUMBER_COUNT = 6;
+
 
     @Override
     public void isValid(String input) {
