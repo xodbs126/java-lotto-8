@@ -23,7 +23,7 @@ public class DivideValidator implements InputValidator {
         }
 
         if (money <= MIN_PRICE) {
-            throw new IllegalArgumentException("[ERROR] 구입 금액은 "+MIN_PRICE+"원보다 커야 합니다.");
+            throw new IllegalArgumentException("[ERROR] 구입 금액은 " + MIN_PRICE + "원보다 커야 합니다.");
         }
     }
 }

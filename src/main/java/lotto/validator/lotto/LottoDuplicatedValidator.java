@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class LottoDuplicatedValidator implements LottoValidator{
+public class LottoDuplicatedValidator implements LottoValidator {
     @Override
     public void isValid(List<Integer> numbers) {
         Set<Integer> lottoNumbers = new HashSet<>(numbers);

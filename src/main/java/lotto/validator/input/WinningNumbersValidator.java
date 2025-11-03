@@ -8,7 +8,6 @@ import java.util.Set;
 public class WinningNumbersValidator implements InputValidator {
 
 
-
     @Override
     public void isValid(String input) {
         if (input == null || input.isBlank()) {

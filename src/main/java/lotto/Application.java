@@ -8,13 +8,14 @@ import lotto.domain.InputParser;
 import lotto.domain.LottoMachine;
 import lotto.domain.LottoStore;
 import lotto.validator.input.BonusNumberValidator;
+import lotto.validator.input.DivideValidator;
 import lotto.validator.input.InputValidator;
 import lotto.validator.input.NumberValidator;
 import lotto.validator.input.WinningNumbersValidator;
-import lotto.validator.lotto.LottoValidator;
 import lotto.validator.lotto.LottoCountValidator;
 import lotto.validator.lotto.LottoDuplicatedValidator;
 import lotto.validator.lotto.LottoRangeValidator;
+import lotto.validator.lotto.LottoValidator;
 
 public class Application {
     public static void main(String[] args) {
@@ -22,6 +23,7 @@ public class Application {
         InputValidator numberValidator = new NumberValidator();
         InputValidator winningNumbersValidator = new WinningNumbersValidator();
         InputValidator bonusNumberValidator = new BonusNumberValidator();
+        DivideValidator divideValidator = new DivideValidator();
 
         LottoCountValidator lottoCountValidator = new LottoCountValidator();
         LottoDuplicatedValidator lottoDuplicatedValidator = new LottoDuplicatedValidator();
@@ -32,7 +34,8 @@ public class Application {
 
         LottoMachine lottoMachine = new LottoMachine(lottoValidators);
 
-        InputParser inputParser = new InputParser(numberValidator, winningNumbersValidator, bonusNumberValidator
+        InputParser inputParser = new InputParser(numberValidator, winningNumbersValidator, bonusNumberValidator,
+                divideValidator
         );
 
         LottoStore lottoStore = new LottoStore(lottoMachine);

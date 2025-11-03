@@ -33,7 +33,6 @@ public class InputParser {
     public List<Integer> convertToNumbers(String winningNumbers) {
         winningNumbersValidator.isValid(winningNumbers);
 
-
         return Arrays.stream(winningNumbers.split(SEPARATOR))
                 .map(String::trim)
                 .map(Integer::parseInt)

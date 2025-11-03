@@ -41,12 +41,11 @@ public class LottoStore {
             purchasedLottos.add(lottoNumbers);
         }
 
-        return LottoDto.from(purchasedLottos, lottoCount, charge,money);
+        return LottoDto.from(purchasedLottos, lottoCount, charge, money);
     }
 
 
     public LottoResult calculate(LottoDto purchasedLottos, WinningNumberDto winningNumbers) {
-
 
         LottoResult result = new LottoResult();
 
