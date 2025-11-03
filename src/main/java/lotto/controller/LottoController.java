@@ -16,8 +16,7 @@ public class LottoController {
     private final InputView inputView;
     private final OutputView outputView;
 
-    public LottoController(LottoStore lottoStore, InputParser inputParser,
-                           InputView inputView, OutputView outputView) {
+    public LottoController(LottoStore lottoStore, InputParser inputParser, InputView inputView, OutputView outputView) {
         this.lottoStore = lottoStore;
         this.inputParser = inputParser;
         this.inputView = inputView;
@@ -57,6 +56,8 @@ public class LottoController {
                 String StringBonusNumber = inputView.inputBonusNumber();
                 int bonusNumber = inputParser.convertToBonusNumber(StringBonusNumber);
 
+                validateBonusNumberDuplication(winningNumbers, bonusNumber);
+
                 return WinningNumberDto.from(winningNumbers, bonusNumber);
 
             } catch (IllegalArgumentException e) {
@@ -64,4 +65,11 @@ public class LottoController {
             }
         }
     }
+
+    private void validateBonusNumberDuplication(List<Integer> winningNumbers, int bonusNumber) {
+        if (winningNumbers.contains(bonusNumber)) {
+            throw new IllegalArgumentException("[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다.");
+        }
+    }
+
 }
