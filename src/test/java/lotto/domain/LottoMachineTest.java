@@ -1,20 +1,18 @@
 package lotto.domain;
 
+import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomUniqueNumbersInRangeTest;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.util.List;
+import lotto.dto.LottoNumbers;
+import lotto.validator.lotto.LottoCountValidator;
 import lotto.validator.lotto.LottoDuplicatedValidator;
+import lotto.validator.lotto.LottoRangeValidator;
+import lotto.validator.lotto.LottoValidator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.List;
-
-import lotto.dto.LottoNumbers;
-import lotto.validator.lotto.LottoCountValidator;
-import lotto.validator.lotto.LottoRangeValidator;
-import lotto.validator.lotto.LottoValidator;
-
-import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomUniqueNumbersInRangeTest;
-import static org.assertj.core.api.Assertions.assertThat;
 
 class LottoMachineTest extends NsTest {
 

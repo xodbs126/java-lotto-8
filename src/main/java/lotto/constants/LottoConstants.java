@@ -8,6 +8,7 @@ public final class LottoConstants {
     public static final int LOTTO_PRICE = 1000;
     public static final int MIN_PRICE = 0;
     public static final String SEPARATOR = ",";
+
     private LottoConstants() {
     }
 }
